@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration debug="false">
+  <appender name="console" class="org.apache.log4j.ConsoleAppender">
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern"
+        value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c - %m (%F:%L)%n"/>
+    </layout>
+  </appender>
+  <appender name="file" class="org.apache.log4j.FileAppender">
+    <param name="file" value="/tmp/sip-test.log" />
+    <param name="append" value="false" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern"
+        value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c - %m (%F:%L)%n"/>
+    </layout>
+  </appender>
+  <logger name="com.sipgate">
+    <level value="DEBUG"/>
+  </logger>
+  <logger name="com.sipgate.SipLogger" additivity="false">
+    <level value="DEBUG" />
+    <appender-ref ref="file"/>
+  </logger>
+  <logger name="com.sipgate.PhoneLogger">
+    <level value="WARN" />
+  </logger>
+  <root>
+    <level value="INFO"/>
+    <appender-ref ref="console"/>
+    <appender-ref ref="file"/>
+  </root>
+</log4j:configuration>
