@@ -4,7 +4,7 @@
 
 	<groupId>com.sipgate</groupId>
 	<artifactId>sip-test</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>sip-test</name>
 	<url>https://github.com/sipgate/sip-test</url>
