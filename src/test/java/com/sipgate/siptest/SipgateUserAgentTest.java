@@ -45,7 +45,7 @@ public class SipgateUserAgentTest {
 	private SipgateUserAgent userAgent0;
 	private SipgateUserAgent userAgent1;
 
-	@Before
+//	@Before
 	public void buildUserAgent() {
 		userAgent0 = SipgateUserAgent
 				.newBuilder()
@@ -62,18 +62,18 @@ public class SipgateUserAgentTest {
 				.build();
 	}
 
-	@After
+//	@After
 	public void terminateUserAgent() {
 		userAgent0.hangup();
 		userAgent1.hangup();
 	}
 
-	@Test
+//	@Test
 	public void testRegister() {
 		assertThat(userAgent0, isRegistered());
 	}
 
-	@Test
+//	@Test
 	public void testRinging() {
 		assertThat(userAgent1, isRegistered());
 		assertThat(userAgent0, allOf(
@@ -81,7 +81,7 @@ public class SipgateUserAgentTest {
 				receivesRemoteRinging()));
 	}
 
-	@Test
+//	@Test
 	public void testDialog() throws Exception {
 
 		//
@@ -124,7 +124,7 @@ public class SipgateUserAgentTest {
 		assertThat(userAgent1, sessionTerminated());
 	}
 
-	@Test
+//	@Test
 	public void testCallerId() {
 		assertThat(userAgent0, isRegistered());
 
