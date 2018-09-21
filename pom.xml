@@ -130,16 +130,6 @@
 			<version>1.0.0</version>
 		</dependency>
 		<dependency>
-			<groupId>com.sipgate.sip</groupId>
-			<artifactId>peers-lib</artifactId>
-			<version>0.0.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sipgate.sip</groupId>
-			<artifactId>peers-javaxsound</artifactId>
-			<version>0.0.1</version>
-		</dependency>
-		<dependency>
 			<!-- don't raise version without need - we are a library -->
 			<groupId>io.vavr</groupId>
 			<artifactId>vavr-jackson</artifactId>
@@ -217,6 +207,23 @@
 			</activation>
 			<build>
 				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>build-helper-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<phase>generate-sources</phase>
+								<goals>
+									<goal>add-source</goal>
+								</goals>
+								<configuration>
+									<sources>
+										<source>src/peers/java</source>
+									</sources>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-surefire-plugin</artifactId>
