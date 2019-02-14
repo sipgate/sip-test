@@ -1,3 +1,6 @@
 target
 
 account.properties
+
+.idea/
+*.iml
