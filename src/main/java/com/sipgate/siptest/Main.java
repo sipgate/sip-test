@@ -18,7 +18,15 @@ public class Main {
 	private static final String NUMBER_0 = "020387844335";
 
 	public static void main(String[] args) {
-		Config config = getConfig("config.toml", true);
+		boolean fromResource = true;
+		String fileName = "config.toml";
+
+		if (args.length == 1) {
+			fileName = args[0];
+			fromResource = false;
+		}
+
+		Config config = getConfig(fileName, fromResource);
 
 		final SipgateUserAgent userAgent = SipgateUserAgent
 				.newBuilder()
@@ -54,6 +62,7 @@ public class Main {
 	public static Config getConfig(String fileName, boolean fromResource) {
 		File configFile;
 		String filePath = "";
+		Toml toml = new Toml();
 
 		if (fromResource) {
 			try {
@@ -61,14 +70,22 @@ public class Main {
 						getResource(fileName).
 						getFile();
 			} catch (NullPointerException e) {
-				LOGGER.error("Could not find config.toml", e);
+				LOGGER.error("Could not find " + fileName, e);
 				System.exit(-1);
+			} finally {
+				configFile = new File(filePath);
 			}
 		} else {
-			filePath = fileName;
+			configFile = new File(fileName);
 		}
 
-		configFile = new File(filePath);
-		return new Toml().read(configFile).to(Config.class);
+		try {
+			toml = toml.read(configFile);
+		} catch (RuntimeException e) {
+			LOGGER.error("Could not find " + fileName, e);
+			System.exit(-1);
+		}
+
+		return toml.to(Config.class);
 	}
 }
