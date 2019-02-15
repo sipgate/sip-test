@@ -6,7 +6,4 @@ public class Config {
 
     public String number;
 
-    public Config(String configFile) {
-
-    }
 }
