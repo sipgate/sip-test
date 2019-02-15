@@ -3,7 +3,7 @@
 
 	<groupId>com.sipgate</groupId>
 	<artifactId>sip-test</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.3-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>sip-test</name>
 	<url>https://github.com/sipgate/sip-test</url>
@@ -37,7 +37,7 @@
 		<connection>scm:git:git@github.com:sipgate/sip-test.git</connection>
 		<developerConnection>scm:git:git@github.com:sipgate/sip-test.git</developerConnection>
 		<url>https://github.com/sipgate/sip-test</url>
-		<tag>sip-test-1.0.2</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 
