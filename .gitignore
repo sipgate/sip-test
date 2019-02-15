@@ -4,3 +4,4 @@ account.properties
 
 .idea/
 *.iml
+src/main/resources/config.toml
